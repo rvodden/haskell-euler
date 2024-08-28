@@ -1,10 +1,4 @@
-module Euler (euler001) where
+module Euler (euler_001, euler_002) where
 
-multiple :: Integral a => a -> a -> Bool
-multiple x y = y `mod` x == 0
-
-multiple_of_3_or_5 :: Integral a => a -> Bool
-multiple_of_3_or_5 a  = multiple 3 a || multiple 5 a
-
-euler001 :: Integral a => a -> a
-euler001 x = sum $ filter multiple_of_3_or_5 [1..(x - 1)]
+import Euler_001(euler_001)
+import Euler_002(euler_002)

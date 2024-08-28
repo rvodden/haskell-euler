@@ -61,6 +61,8 @@ library
     -- Modules exported by the library.
     exposed-modules:  Euler
 
+    other-modules: Euler_001, Euler_002
+
     -- Modules included in this library but not exported.
     -- other-modules:
 
@@ -100,30 +102,22 @@ executable haskel-euler
     -- Base language which the package is written in.
     default-language: GHC2021
 
-test-suite haskel-euler-test
-    -- Import common warning flags.
-    import:           warnings
-
-    -- Base language which the package is written in.
+common test-depends
+    import: warnings
     default-language: GHC2021
-
-    -- Modules included in this executable, other than Main.
-    -- other-modules:
-
-    -- LANGUAGE extensions used by modules in this package.
-    -- other-extensions:
-
-    -- The interface type and version of the test suite.
-    type:             exitcode-stdio-1.0
-
-    -- Directories containing source files.
-    hs-source-dirs:   test
-
-    -- The entrypoint to the test suite.
-    main-is:          Test_Euler.hs
-
-    -- Test dependencies.
     build-depends:
         base ^>=4.17.2.1,
         HUnit,
         haskel-euler
+    hs-source-dirs:   test
+
+
+test-suite test_euler_001
+    import:           test-depends
+    type:             exitcode-stdio-1.0
+    main-is:          Test_Euler_001.hs
+
+test-suite test_euler_002
+    import:           test-depends
+    type:             exitcode-stdio-1.0
+    main-is:          Test_Euler_002.hs
